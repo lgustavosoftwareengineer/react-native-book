@@ -45,7 +45,34 @@ export default function App() {
 export default function App() {
   return <ExFlexShrink />;
 }
-*/
+
+//=============================
+// Exemplo com FlexBasis
+//=============================
 export default function App() {
   return <ExFlexBasis />;
 }
+*/
+export default function App() {
+  return (
+    <View style={styles.wrap}>
+      <Text style={styles.mainText}>
+        Troque entre os exemplos a cima (comentados) no código fonte da
+        aplicação para ver as diferenças
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  wrap: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+  },
+  mainText: {
+    fontSize: 20,
+  },
+});
