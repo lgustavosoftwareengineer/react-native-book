@@ -11,27 +11,37 @@ import {
 } from "./components/Index";
 /*
 
+//============================= 
 // Exemplo com DimensoesFixas
+//=============================
 export default function App() {
   return <DimensoesFixas />;
 }
 
+//=============================
 // Exemplo com AlignItems
+//=============================
 export default function App() {
   return <ExAlignItems />;
 }
 
+//=============================
 // Exemplo com FlexWrap
+//=============================
 export default function App() {
   return <ExFlexWrap />;
 }
 
+//=============================
 // Exemplo com FlexGrow
+//=============================
 export default function App() {
   return <ExFlexGrow />;
 }
 
+//=============================
 // Exemplo com FlexShrink
+//=============================
 export default function App() {
   return <ExFlexShrink />;
 }
