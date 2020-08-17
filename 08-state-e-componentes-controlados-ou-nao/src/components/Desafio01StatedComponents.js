@@ -5,8 +5,11 @@ class SwitchComponents extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cont: 0,
-      components: {
+      // Creating a traveler to go through the componentsStateArray
+      travelerComponents: 0,
+
+      // Components object
+      componentsStateArray: {
         0: (
           <Text style={[styles.textWhichChangeText, { fontSize: 10 }]}>
             See u me?
@@ -24,15 +27,18 @@ class SwitchComponents extends React.Component {
         ),
       },
     };
-
-    this.handlerChooseComponent = this.handlerChooseComponent.bind(this);
   }
 
-  handlerChooseComponent(cont, components) {
-    if (components[cont] == components.length) {
-      this.setState({ cont: 0 });
+  // Chooser components
+  handlerChooseComponent(travelerComponents, componentsStateArray) {
+    if (
+      componentsStateArray[travelerComponents] == componentsStateArray.length
+    ) {
+      // Resetting the traveler
+      this.setState({ travelerComponents: 0 });
     }
-    return components[cont];
+    // Returning the component which matches with the traveler
+    return componentsStateArray[travelerComponents];
   }
 
   render() {
@@ -41,19 +47,21 @@ class SwitchComponents extends React.Component {
         <View style={styles.containerContent}>
           <View style={styles.textWhichChangeContainer}>
             {this.handlerChooseComponent(
-              this.state.cont,
-              this.state.components
+              this.state.travelerComponents,
+              this.state.componentsStateArray
             )}
           </View>
           <Button
             title={`${
-              this.state.cont != 2
+              this.state.travelerComponents != 2
                 ? "👀 I'm not seeing you"
                 : "🗣️ OK MOTHERFUCK#RRR"
             }`}
             color="#6272a4"
             onPress={() => {
-              this.setState({ cont: this.state.cont + 1 });
+              this.setState({
+                travelerComponents: this.state.travelerComponents + 1,
+              });
             }}
           />
         </View>
