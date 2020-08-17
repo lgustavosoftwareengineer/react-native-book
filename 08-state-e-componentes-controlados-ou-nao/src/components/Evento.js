@@ -1,11 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 
-export default class Evento extends React.Component {
-  // Initializing the state
-  state = {
-    input: "",
-  };
+class Evento extends React.Component {
+  // Constructor necessary to defining the props
+  constructor(props) {
+    // Defining the props before anything else
+    super(props);
+    this.state = {
+      input: "",
+    };
+
+    this.alteraInput = this.alteraInput.bind(this);
+  }
+
+  alteraInput(input) {
+    this.setState({ input });
+  }
 
   render() {
     return (
@@ -17,7 +27,7 @@ export default class Evento extends React.Component {
         <TextInput
           style={styles.input}
           value={this.state.input}
-          onChangeText={(input) => this.setState({ input })}
+          onChangeText={this.alteraInput}
         />
       </View>
     );
@@ -48,3 +58,5 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
 });
+
+export default Evento;
